@@ -1,0 +1,81 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* bimeow */
+
+.fadeUpCenter,
+.fadeDownCenter,
+.fadeRightCenter,
+.fadeLeftCenter,
+.fadeUp,
+.fadeDown,
+.fadeRight,
+.fadeLeft,
+.fadeIn {
+  opacity: 0;
+}
+
+* {
+  &::-webkit-scrollbar {
+    width: 4px !important;
+    height: 4px !important;
+    -webkit-border-radius: 20px;
+    border-radius: 20px !important;
+  }
+  &::-webkit-scrollbar-track {
+    background: #0000;
+    -webkit-border-radius: 20px;
+    border-radius: 20px !important;
+  }
+  &::-webkit-scrollbar-thumb {
+    background: #ffb700;
+    -webkit-border-radius: 20px;
+    border-radius: 20px !important;
+  }
+  ::-webkit-scrollbar-button {
+    display: none;
+  }
+
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+html,
+body,
+.hideScrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+@layer base {
+  body {
+    @apply text-[16px] font-medium bg-blue text-white leading-[1.25];
+  }
+
+  .cusContainer {
+    @apply mx-auto w-[88%] max-w-[2000px] tl-l:w-full tl-l:px-[20px];
+  }
+
+  .flexCenter {
+    @apply flex items-center justify-center;
+  }
+
+  .cusInput {
+    @apply w-full !border-none bg-transparent p-[5px] text-[18px] !shadow-none !ring-0 placeholder:text-inherit mb:text-[16px];
+  }
+
+  .absFull {
+    @apply absolute left-0 top-0 size-full;
+  }
+
+  .mainBtn {
+    @apply w-fit py-[10px] px-[20px] bg-yellow text-[24px] text-center text-white shadow-[0px_4px_4px_#00000026] rounded-[50px];
+  }
+}

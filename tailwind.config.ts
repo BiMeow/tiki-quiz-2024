@@ -8,13 +8,26 @@ const config: Config = {
   ],
   theme: {
     extend: {
-      backgroundImage: {
-        "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
-        "gradient-conic":
-          "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
+      fontFamily: {
+        SF_PRO_ROUNDED: `'SF Pro Rounded', sans-serif`,
+      },
+      screens: {
+        "dt-exl": { min: "1660px" },
+        "dt-l-min": { min: "1366px" },
+        "dt-xl": { max: "1660px" },
+        "dt-l": { max: "1440px" },
+        "dt-sm": { max: "1366px" },
+        "tl-l": { max: "1280px" },
+        "tl-p": { max: "1000px" },
+        mb: { max: "767px" },
+      },
+
+      colors: {
+        blue: "#0A68FF",
+        yellow: "#FFB700",
       },
     },
   },
-  plugins: [],
+  plugins: [require("@tailwindcss/aspect-ratio")],
 };
 export default config;
