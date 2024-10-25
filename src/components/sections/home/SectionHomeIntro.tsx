@@ -1,48 +1,23 @@
-import { memo, useEffect, useMemo, useState } from "react";
-import { useRouter } from "next/navigation";
-import { useWindowSize } from "usehooks-ts";
+import { useStorage } from "@/components/context/StorageProvider";
+import IntroStep1 from "@/components/sections/home/IntroStep1";
+import IntroStep2 from "@/components/sections/home/IntroStep2";
+import { memo } from "react";
 
 function SectionHomeIntro({ ...props }) {
-  const router = useRouter();
-
-  const { height } = useWindowSize();
-
-  const [heightImageDeco, setHeightImageDeco] = useState<any>(340);
-
-  useEffect(() => {
-    if (height) {
-      const elmnt: any = document.querySelector(".SectionHomeIntro .imageDeco");
-
-      if (elmnt) {
-        setHeightImageDeco(elmnt.offsetHeight);
-        console.log("BiMeow log elmnt.offsetHeight", elmnt.offsetHeight);
-      }
-    }
-    return () => {};
-  }, [height]);
+  const { introStep } = useStorage();
 
   return (
     <>
-      <div className={`SectionHomeIntro h-screen`}>
-        <div
-          className="content flex flex-col px-[25px] py-[3.5vh]"
-          style={{ height: `calc(100% - ${heightImageDeco}px)` }}
-        >
-          <img src="/images/logo.png" alt="Tiki's Logo" className="w-[67px]" />
-
-          <div className="detail h-fit my-auto py-[2vh]">
-            <img
-              src="/images/intro-text.png"
-              alt="Tiki's Quiz Intro Text"
-              className="w-full max-h-[27vh] object-contain mb-[1.1vh]"
-            />
-            <p className="text-[2vh] font-medium text-center leading-[1.1] mb-[3vh]">
-              Mẹ là kiểu nào? <br /> Cùng TIKI khám phá nhé!
-            </p>
-            <div className="mainBtn mx-auto !text-[2vh]">
-              Tham gia trắc nghiệm
-            </div>
-          </div>
+      <div
+        className={`SectionHomeIntro flex flex-col justify-between h-screen overflow-hidden`}
+      >
+        <img
+          src="/images/logo.png"
+          alt="Tiki's Logo"
+          className="w-[67px] m-[25px] mb-0"
+        />
+        <div className="detail h-fit py-[2vh]">
+          {introStep == 1 ? <IntroStep1 /> : <IntroStep2 />}
         </div>
         <div className="imageDeco relative aspect-[43/34] bg-black">
           <img
