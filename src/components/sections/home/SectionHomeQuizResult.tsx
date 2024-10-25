@@ -6,7 +6,7 @@ import { memo } from "react";
 function SectionHomeQuizResult({ ...props }) {
   const { momName, listSelectedAnswer } = useStorage();
 
-  console.log("BiMeow log listSelectedAnswer", listSelectedAnswer);
+  console.log("BiMeow log listSelectedAnswer ", listSelectedAnswer);
 
   return (
     <>
