@@ -1,13 +1,18 @@
 import { useStorage } from "@/components/context/StorageProvider";
 import { message } from "antd";
 import { memo } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 
 function IntroStep2({ ...props }) {
   const { momName, setMomName, setQuizStep } = useStorage();
 
   return (
     <>
-      <div className={`IntroStep2 px-[25px]`}>
+      <motion.div
+        initial={{ x: 400, opacity: 0 }}
+        animate={{ x: 0, opacity: 1 }}
+        className={`IntroStep2 px-[25px]`}
+      >
         <div className="flex items-center p-[7px] bg-white rounded-[50px] mb-[20px]">
           <img
             src="/images/avatar.png"
@@ -24,15 +29,19 @@ function IntroStep2({ ...props }) {
         <div
           className="mainBtn mx-auto px-[40px]"
           onClick={() => {
-            if (momName) setQuizStep(2);
-            else {
+            if (momName) {
+              setQuizStep(0);
+              setTimeout(() => {
+                setQuizStep(2);
+              }, 200);
+            } else {
               message.warning("Vui lòng nhập tên của mẹ!");
             }
           }}
         >
           Bắt đầu
         </div>
-      </div>
+      </motion.div>
     </>
   );
 }

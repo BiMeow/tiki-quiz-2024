@@ -9,7 +9,7 @@ const StorageProvider = (props: any) => {
 
   const [isBlueLogo, setIsBlueLogo] = useState(false);
 
-  const [quizStep, setQuizStep] = useState<any>(1);
+  const [quizStep, setQuizStep] = useState<any>(3);
   const [introStep, setIntroStep] = useState<any>(1);
 
   const [momName, setMomName] = useState<any>("");
