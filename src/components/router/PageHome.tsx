@@ -4,6 +4,7 @@ import { useStorage } from "@/components/context/StorageProvider";
 import SectionHomeIntro from "@/components/sections/home/SectionHomeIntro";
 import SectionHomeQuiz from "@/components/sections/home/SectionHomeQuiz";
 import SectionHomeQuizResult from "@/components/sections/home/SectionHomeQuizResult";
+import { AnimatePresence } from "framer-motion";
 import { useRouter } from "next/navigation";
 import { memo, useMemo } from "react";
 
@@ -30,7 +31,9 @@ function PageHome({ ...props }) {
 
   return (
     <>
-      <div className={`PageHome`}>{pageContent}</div>
+      <div className={`PageHome`}>
+        <AnimatePresence>{pageContent}</AnimatePresence>
+      </div>
     </>
   );
 }
