@@ -103,7 +103,7 @@ function SectionHomeQuizResult({ ...props }) {
   return (
     <>
       <div className={`SectionHomeQuizResult min-h-screen`}>
-        <div className="headingResult relative z-10 p-[25px] bg-white rounded-b-[30px]">
+        <div className="headingResult relative z-10 p-[25px] bg-white rounded-b-[30px] opacity-0">
           <img
             src="/images/logo-blue.png"
             alt="Tiki's Logo"
@@ -122,16 +122,16 @@ function SectionHomeQuizResult({ ...props }) {
           <img
             src="/images/result-bestie.png"
             alt=""
-            className="resultImage w-full mb-[10px]"
+            className="resultImage w-full mb-[10px] opacity-0"
           />
           <div className="detail px-[25px]">
-            <p className="resultDesc text-[15px] text-center mb-[20px]">
+            <p className="resultDesc text-[15px] text-center mb-[20px] opacity-0">
               Thời gian gần gũi, những cái ôm, những lời thủ thỉ tâm tình là món
               quà mẹ dành cho con trong suốt hành trình lớn khôn. Mẹ chẳng ngại
               ngủ cùng con, luôn gắn bó chặt chẽ và hỗ trợ cảm xúc liên tục. Và
               vì vậy, con luôn có cảm giác an toàn và kết nối sâu sắc với mẹ đó!
             </p>
-            <div className="resultBtn mainBtn w-full flex justify-center text-[18px]">
+            <div className="resultBtn mainBtn w-full flex justify-center text-[18px] opacity-0">
               <p>Chia sẻ ngay</p>
               <div className="icon flex text-[25px] ml-[10px]">
                 <IconShare />
@@ -139,7 +139,7 @@ function SectionHomeQuizResult({ ...props }) {
             </div>
           </div>
         </div>
-        <div className="listProduct p-[25px] pt-0 bg-white rounded-t-[30px]">
+        <div className="listProduct p-[25px] pt-0 bg-white rounded-t-[30px] opacity-0">
           <div className="heading relative px-[30px] py-[10px] bg-[#0241A7] rounded-[50px] -translate-y-1/2">
             <p className="text-center text-[20px]">
               Trợ thủ đắc lực cho mẹ Bestie
