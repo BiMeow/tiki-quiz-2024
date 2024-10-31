@@ -139,6 +139,35 @@ function SectionHomeIntro({ ...props }) {
           duration: 2,
         }
       );
+
+      gsap.timeline({ repeat: -1, yoyo: true, ease: "linear" }).fromTo(
+        ".SectionHomeIntro .imageMain .mainMini3 img",
+        { scale: 1 },
+        {
+          scale: 0.75,
+          duration: 1,
+        }
+      );
+
+      // gsap.timeline({ repeat: -1, yoyo: true, ease: "linear" }).fromTo(
+      //   ".SectionHomeIntro .imageMain .mainMini1",
+      //   { top: "33.333333%", right: "20%" },
+      //   {
+      //     top: "66.666666%",
+      //     right: "0%",
+      //     duration: 2,
+      //   }
+      // );
+
+      // gsap.timeline({ repeat: -1, yoyo: true, ease: "linear" }).fromTo(
+      //   ".SectionHomeIntro .imageMain .mainMini4",
+      //   { top: "66.666666%", right: "0%" },
+      //   {
+      //     top: "33.333333%",
+      //     right: "20%",
+      //     duration: 2,
+      //   }
+      // );
     }, 1000);
     return () => {};
   }, []);
@@ -168,16 +197,65 @@ function SectionHomeIntro({ ...props }) {
           className="logo w-[67px] m-[25px] mb-0 opacity-0"
         />
 
-        <div className="detail h-fit py-[2vh]">
+        <div className="detail relative z-10 h-fit py-[2vh]">
           <AnimatePresence>{introContent}</AnimatePresence>
         </div>
 
-        <div className="imageDeco relative aspect-[43/34]">
-          <img
-            src="/images/image-deco-test.jpg"
-            alt="Tiki's Quiz Deco"
-            className="imageMain absFull z-10 opacity-0"
-          />
+        <div className="imageDeco relative aspect-[430/255]">
+          <div className="imageMain opacity-0 relative z-10 size-full">
+            <div className="mainFlower flex w-1/5 h-full bg-red-300 absolute top-0 left-0">
+              <img
+                src="/images/intro-main-flower.png"
+                alt=""
+                className="relative z-10 block w-[90%] mx-auto mt-auto"
+              />
+              <div className="bg1 absolute w-full h-1/3 top-0 left-0 bg-[#C6D8F3]"></div>
+              <div className="bg2 absolute w-full h-1/3 top-1/3 left-0 bg-[#E2EDFF]"></div>
+              <div className="bg3 absolute w-full h-1/3 bottom-0 left-0 bg-[#95BCF3]"></div>
+            </div>
+            <div className="mainText absolute w-3/5 h-1/3 top-0 left-[20%]">
+              <img
+                src="/images/intro-main-text.jpg"
+                alt=""
+                className="size-full"
+              />
+              <div className="flashing absFull z-10"></div>
+            </div>
+            <img
+              src="/images/intro-main-avatar.jpg"
+              alt=""
+              className="mainAvatar absolute w-1/5 h-1/3 top-0 right-0"
+            />
+            <img
+              src="/images/intro-main-family.jpg"
+              alt=""
+              className="mainFamily absolute w-2/5 h-2/3 bottom-0 left-[20%]"
+            />
+            <img
+              src="/images/intro-main-mini1.jpg"
+              alt=""
+              className="mainMini1 absolute w-1/5 h-1/3 top-1/3 right-[20%]"
+            />
+            <div className="mainMini2 flexCenter absolute z-10 w-1/5 h-1/3 top-1/3 right-0 bg-[#B1D5FF]">
+              <img
+                src="/images/intro-main-mini2.png"
+                alt=""
+                className="decoSpin1 w-[70%]"
+              />
+            </div>
+            <div className="mainMini3 flexCenter absolute z-10 w-1/5 h-1/3 bottom-0 right-[20%] bg-[#92C5B2]">
+              <img
+                src="/images/intro-main-mini3.png"
+                alt=""
+                className="w-[50%]"
+              />
+            </div>
+            <img
+              src="/images/intro-main-mini4.jpg"
+              alt=""
+              className="mainMini4 absolute w-1/5 h-1/3 bottom-0 right-0"
+            />
+          </div>
           <img
             src="/images/deco-flower.png"
             alt="Tiki's deco"
@@ -197,7 +275,7 @@ function SectionHomeIntro({ ...props }) {
         <img
           src="/images/deco-spin.png"
           alt="Tiki's deco"
-          className="introDeco opacity-0 decoSpin2 w-[30px] absolute bottom-[55%] left-[15px]"
+          className="introDeco opacity-0 decoSpin2 w-[30px] absolute bottom-[45%] left-[15px]"
         />
       </motion.div>
     </>
