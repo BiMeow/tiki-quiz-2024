@@ -79,3 +79,89 @@ body,
     @apply w-fit py-[10px] px-[20px] bg-yellow text-[24px] text-center text-white shadow-[0px_4px_4px_#00000026] rounded-[50px] cursor-pointer;
   }
 }
+
+.SectionHomeIntro {
+  .mainFlower {
+    .bg1 {
+      animation: bgMainFlower1 5s linear infinite alternate;
+    }
+
+    .bg2 {
+      animation: bgMainFlower2 5s linear infinite alternate;
+    }
+
+    .bg3 {
+      animation: bgMainFlower3 5s linear infinite alternate;
+    }
+  }
+
+  .mainText {
+    .flashing {
+      background-size: 700% !important;
+      background-position: right;
+      transition: 0.3s;
+      background: linear-gradient(
+        45deg,
+        #0000 20%,
+        // #ffb70033 25%,
+        #fff2 25%,
+        #0000 30%,
+      );
+      animation: bgFlashing 3s linear infinite;
+    }
+  }
+}
+
+@keyframes bgMainFlower1 {
+  0% {
+    background: #c6d8f3;
+  }
+  33.333333% {
+    background: #95bcf3;
+  }
+  66.666666% {
+    background: #e2edff;
+  }
+  100% {
+    background: #c6d8f3;
+  }
+}
+
+@keyframes bgMainFlower2 {
+  0% {
+    background: #e2edff;
+  }
+  33.333333% {
+    background: #c6d8f3;
+  }
+  66.666666% {
+    background: #95bcf3;
+  }
+  100% {
+    background: #e2edff;
+  }
+}
+
+@keyframes bgMainFlower3 {
+  0% {
+    background: #95bcf3;
+  }
+  33.333333% {
+    background: #e2edff;
+  }
+  66.666666% {
+    background: #c6d8f3;
+  }
+  100% {
+    background: #95bcf3;
+  }
+}
+
+@keyframes bgFlashing {
+  from {
+    background-position: right;
+  }
+  to {
+    background-position: left;
+  }
+}
