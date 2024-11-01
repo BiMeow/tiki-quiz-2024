@@ -11,7 +11,7 @@ function IntroStep2({ ...props }) {
       <motion.div
         initial={{ x: 400, opacity: 0 }}
         animate={{ x: 0, opacity: 1 }}
-        className={`IntroStep2 px-[30px]`}
+        className={`IntroStep2 w-full mx-auto max-w-[75%] px-[30px]`}
       >
         <div className="flex items-center p-[7px] bg-white rounded-[50px] mb-[20px]">
           <img

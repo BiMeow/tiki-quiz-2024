@@ -76,7 +76,7 @@ body,
   }
 
   .mainBtn {
-    @apply w-fit py-[10px] px-[20px] bg-yellow text-[32px] text-center text-white shadow-[0px_4px_4px_#00000026] rounded-[50px] cursor-pointer tl-p:text-[24px];
+    @apply w-fit py-[10px] px-[20px] bg-yellow text-[28px] text-center text-white shadow-[0px_4px_4px_#00000026] rounded-[50px] cursor-pointer duration-500 hover:shadow-[0px_0px_20px_#fffa] tl-p:text-[24px] tl-p:hover:shadow-[0px_4px_4px_#00000026];
   }
 }
 
