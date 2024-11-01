@@ -189,7 +189,7 @@ function SectionHomeIntro({ ...props }) {
     <>
       <motion.div
         exit={{ scale: 0, opacity: 0 }}
-        className={`SectionHomeIntro relative flex-col justify-between h-dvh overflow-hidden hidden tl-p:flex`}
+        className={`SectionHomeIntro relative flex-col justify-between h-dvh overflow-hidden hidden mb:flex`}
       >
         <img
           src="/images/logo.png"
@@ -281,10 +281,10 @@ function SectionHomeIntro({ ...props }) {
 
       <motion.div
         exit={{ scale: 0, opacity: 0 }}
-        className={`SectionHomeIntro relative flex h-dvh overflow-hidden tl-p:hidden`}
+        className={`SectionHomeIntro relative flex h-dvh overflow-hidden mb:hidden`}
       >
-        <div className="imageDeco relative aspect-[730/900] w-auto h-full">
-          <div className="imageMain opacity-0 relative z-10 size-full">
+        <div className="imageDeco relative z-10 aspect-[730/900] w-auto h-full">
+          <div className="imageMain opacity-0 relative z-50 size-full">
             <div className="mainFlower flex w-1/4 h-[60%] bg-red-300 absolute bottom-0 left-0">
               <img
                 src="/images/intro-main-flower.png"
@@ -365,7 +365,7 @@ function SectionHomeIntro({ ...props }) {
           </div>
         </div>
 
-        <div className="content flex flex-col relative mx-auto py-[30px]">
+        <div className="content flex flex-col relative z-0 w-full mx-auto py-[30px]">
           <img
             src="/images/logo.png"
             alt="Tiki's Logo"
@@ -375,6 +375,7 @@ function SectionHomeIntro({ ...props }) {
           <div className="detail relative z-10 h-fit my-auto">
             <AnimatePresence>{introContent}</AnimatePresence>
           </div>
+
           <img
             src="/images/deco-flower.png"
             alt="Tiki's deco"

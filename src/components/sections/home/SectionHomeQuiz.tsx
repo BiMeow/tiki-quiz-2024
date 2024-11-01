@@ -113,7 +113,7 @@ function SectionHomeQuiz({ ...props }) {
             autoAlpha: 1,
             opacity: 1,
             duration: 0.7,
-            stagger: 0.3,
+            stagger: 0.1,
             ease: "sine.out",
           },
           0.3
@@ -156,8 +156,10 @@ function SectionHomeQuiz({ ...props }) {
   return (
     <>
       <motion.div
+        initial={{ scale: 0, opacity: 0 }}
+        animate={{ scale: 1, opacity: 1 }}
         exit={{ scale: 0, opacity: 0 }}
-        className={`SectionHomeQuiz flex flex-col h-dvh overflow-hidden`}
+        className={`SectionHomeQuiz flex flex-col h-dvh max-w-[1000px] max-h-[600px] mx-auto bg-[#0051D2] rounded-[30px] overflow-hidden tl-p:bg-transparent tl-p:rounded-none tl-p:max-h-dvh`}
       >
         <div className="question relative p-[25px] bg-white rounded-b-[30px] opacity-0">
           <img
@@ -165,7 +167,7 @@ function SectionHomeQuiz({ ...props }) {
             alt="Tiki's Logo"
             className="w-[67px] mb-[20px]"
           />
-          <p className="text-[22px] text-yellow mb-[10px]">
+          <p className="text-[24px] text-yellow mb-[10px] tl-p:text-[22px]">
             Câu hỏi <span className="text-blue">{activeQuestion + 1}</span>/
             {listQuiz?.length}
           </p>
@@ -177,34 +179,37 @@ function SectionHomeQuiz({ ...props }) {
               }}
             ></div>
           </div>
-          <p className="text-[18px] text-blue mb-[20px]">
+          <p className="text-[22px] text-blue mb-[20px] tl-p:text-[18px]">
             {listQuiz[activeQuestion]?.question}
           </p>
           <img
             src="/images/question-1.png"
             alt="Tiki's question"
-            className="object-contain w-full h-[10vh]"
+            className="object-contain w-full h-[15vh] tl-p:h-[10vh]"
           />
           <img
             src="/images/deco-star-yellow.png"
             alt="Tiki's deco"
-            className="quizDecoStar absolute w-[40px] top-0 right-0"
+            className="quizDecoStar absolute w-[40px] top-0 right-0 hidden tl-p:block"
           />
           <img
             src="/images/deco-heart.png"
             alt="Tiki's deco"
-            className="quizDecoHeart absolute w-[30px] top-[30px] right-[20%]"
+            className="quizDecoHeart absolute w-[30px] top-[30px] right-[20%] hidden tl-p:block"
           />
           <img
             src="/images/deco-spin.png"
             alt="Tiki's deco"
-            className="quizDecoSpin absolute w-[15px] top-[80px] right-[15px]"
+            className="quizDecoSpin absolute w-[15px] top-[80px] right-[15%] tl-p:right-[15px]"
           />
         </div>
 
-        <div className="answer my-auto p-[25px] space-y-[10px]">
+        <div className="answer flex flex-wrap mx-[-10px] gap-y-[15px] my-auto p-[25px] tl-p:gap-y-[10px]">
           {listQuiz[activeQuestion]?.answer?.map((e: any, i: number) => (
-            <div className="moveUp opacity-0" key={i}>
+            <div
+              className="moveUp opacity-0 w-1/2 tl-p:w-full px-[10px]"
+              key={i}
+            >
               <div
                 className={`
                 itemAnswer px-[15px] py-[10px] flex items-center rounded-[50px] duration-500
@@ -224,32 +229,56 @@ function SectionHomeQuiz({ ...props }) {
               </div>
             </div>
           ))}
-
-          <div
-            className="mainBtn moveUp opacity-0 mx-auto px-[40px]"
-            onClick={() => {
-              if (activeAnswer >= 0) {
-                setListSelectedAnswer([
-                  ...listSelectedAnswer,
-                  listQuiz[activeQuestion]?.answer[activeAnswer],
-                ]);
-                if (activeQuestion + 1 == listQuiz?.length) {
-                  setQuizStep(0);
-                  setTimeout(() => {
-                    setQuizStep(3);
-                  }, 200);
+          <div className="moveUp opacity-0 w-full">
+            <div
+              className="mainBtn mx-auto px-[40px]"
+              onClick={() => {
+                if (activeAnswer >= 0) {
+                  setListSelectedAnswer([
+                    ...listSelectedAnswer,
+                    listQuiz[activeQuestion]?.answer[activeAnswer],
+                  ]);
+                  if (activeQuestion + 1 == listQuiz?.length) {
+                    setQuizStep(0);
+                    setTimeout(() => {
+                      setQuizStep(3);
+                    }, 200);
+                  } else {
+                    setActiveAnswer(-1);
+                    setActiveQuestion(activeQuestion + 1);
+                  }
                 } else {
-                  setActiveAnswer(-1);
-                  setActiveQuestion(activeQuestion + 1);
+                  message.warning("Vui lòng chọn câu trả lời!");
                 }
-              } else {
-                message.warning("Vui lòng chọn câu trả lời!");
-              }
-            }}
-          >
-            {activeQuestion + 1 == listQuiz?.length ? "Hoàn thành" : "Tiếp tục"}
+              }}
+            >
+              {activeQuestion + 1 == listQuiz?.length
+                ? "Hoàn thành"
+                : "Tiếp tục"}
+            </div>
           </div>
         </div>
+
+        <img
+          src="/images/deco-star-yellow.png"
+          alt="Tiki's deco"
+          className="quizDecoStar absolute w-[40px] top-[30px] right-[70px] tl-p:hidden"
+        />
+        <img
+          src="/images/deco-heart.png"
+          alt="Tiki's deco"
+          className="quizDecoHeart absolute w-[40px] bottom-[90px] left-[30px] tl-p:hidden"
+        />
+        <img
+          src="/images/deco-spin.png"
+          alt="Tiki's deco"
+          className="quizDecoSpin absolute w-[50px] bottom-[40%] right-[50px] tl-p:hidden"
+        />
+        <img
+          src="/images/deco-spin.png"
+          alt="Tiki's deco"
+          className="quizDecoSpin absolute w-[20px] top-[20%] left-[7%] tl-p:hidden"
+        />
       </motion.div>
     </>
   );
