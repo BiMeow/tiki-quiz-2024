@@ -1,8 +1,4 @@
 // FIXME: Update this configuration file based on your project information
-import { headers } from "next/headers";
-
-const headerList = headers();
-const currentUrl = headerList.get("x-current-url");
 
 const AppConfig = {
   getBaseUrl: (url = "") => {
@@ -12,7 +8,7 @@ const AppConfig = {
     }
     return process.env.APP_URL
       ? `${process.env.APP_URL}${url}`
-      : `${currentUrl}${url}`;
+      : `http://localhost:3000${url}`;
   },
 
   getBaseAssetUrl: (path = "") => {
