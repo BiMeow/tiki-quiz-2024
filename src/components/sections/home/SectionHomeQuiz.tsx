@@ -157,7 +157,7 @@ function SectionHomeQuiz({ ...props }) {
     <>
       <motion.div
         exit={{ scale: 0, opacity: 0 }}
-        className={`SectionHomeQuiz flex flex-col h-screen overflow-hidden`}
+        className={`SectionHomeQuiz flex flex-col h-dvh overflow-hidden`}
       >
         <div className="question relative p-[25px] bg-white rounded-b-[30px] opacity-0">
           <img
@@ -183,7 +183,7 @@ function SectionHomeQuiz({ ...props }) {
           <img
             src="/images/question-1.png"
             alt="Tiki's question"
-            className="object-contain w-full h-[13vh]"
+            className="object-contain w-full h-[10vh]"
           />
           <img
             src="/images/deco-star-yellow.png"
