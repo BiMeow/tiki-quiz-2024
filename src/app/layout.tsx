@@ -7,6 +7,7 @@ import { GoogleAnalytics, GoogleTagManager } from "@next/third-parties/google";
 import "swiper/css";
 import "swiper/css/effect-fade";
 import "./globals.scss";
+import { headers } from "next/headers";
 
 export async function generateMetadata(
   { params, searchParams }: any,
@@ -14,25 +15,25 @@ export async function generateMetadata(
 ) {
   // read route params
   const locale = params.locale;
+  const headerList = headers();
+  const currentUrl: any = headerList.get("x-current-url");
 
-  let title: any =
-    "Tiki quiz";
-  let desc: any =
-    "Tiki quiz";
+  let title: any = "Tiki quiz";
+  let desc: any = "Tiki quiz";
 
   return {
-    metadataBase: new URL(AppConfig.getBaseUrl()),
+    metadataBase: new URL(currentUrl),
     title: title,
     description: desc,
 
     openGraph: {
       title: title,
       description: desc,
-      url: AppConfig.getBaseUrl(),
+      url: currentUrl,
       siteName: title,
       images: [
         {
-          url: AppConfig.getBaseAssetUrl("/images/thumbshare.jpg"), // Must be an absolute URL
+          url: `${currentUrl}/images/thumbshare.jpg`, // Must be an absolute URL
           width: 1200,
           height: 630,
         },
