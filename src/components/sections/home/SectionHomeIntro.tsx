@@ -189,7 +189,7 @@ function SectionHomeIntro({ ...props }) {
     <>
       <motion.div
         exit={{ scale: 0, opacity: 0 }}
-        className={`SectionHomeIntro relative flex flex-col justify-between h-screen overflow-hidden`}
+        className={`SectionHomeIntro relative flex flex-col justify-between h-dvh overflow-hidden`}
       >
         <img
           src="/images/logo.png"
@@ -197,7 +197,7 @@ function SectionHomeIntro({ ...props }) {
           className="logo w-[67px] m-[25px] mb-0 opacity-0"
         />
 
-        <div className="detail relative z-10 h-fit py-[2vh]">
+        <div className="detail relative z-10 h-fit py-[2dvh]">
           <AnimatePresence>{introContent}</AnimatePresence>
         </div>
 
