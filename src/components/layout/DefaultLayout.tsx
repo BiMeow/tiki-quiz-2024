@@ -116,9 +116,9 @@ export default function DefaultLayout({
       <ReactLenis
         ref={lenisRef}
         autoRaf={false}
-        className="mainPage relative h-screen overflow-auto overflow-y-auto overflow-x-hidden"
+        className="mainPage relative h-dvh overflow-auto overflow-y-auto overflow-x-hidden"
       >
-        <div className="pageContent flex min-h-screen flex-col items-center justify-center">
+        <div className="pageContent flex min-h-dvh flex-col items-center justify-center">
           <div className="w-full">{children}</div>
         </div>
       </ReactLenis>
