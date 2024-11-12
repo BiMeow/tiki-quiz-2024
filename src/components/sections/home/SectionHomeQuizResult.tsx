@@ -2,15 +2,18 @@ import CardProduct from "@/components/common/CardProduct";
 import { IconShare } from "@/components/common/Icon";
 import { useStorage } from "@/components/context/StorageProvider";
 import gsap from "gsap";
-import { memo, useEffect } from "react";
+import { memo, useEffect, useState } from "react";
 import SplitType from "split-type";
 import { useWindowSize } from "usehooks-ts";
 import { motion } from "framer-motion";
+import { listMom } from "@/data/quiz";
 
 function SectionHomeQuizResult({ ...props }) {
   const { momName, listSelectedAnswer } = useStorage();
 
   const { width } = useWindowSize();
+
+  const [result, setResult] = useState<any>();
 
   useEffect(() => {
     if (width < 767) {
@@ -223,6 +226,30 @@ function SectionHomeQuizResult({ ...props }) {
     return () => {};
   }, [width]);
 
+  useEffect(() => {
+    if (listSelectedAnswer.length) {
+      listSelectedAnswer.map((e: any, i: number) => {
+        let indexMomType: any = listMom.findIndex(
+          (e2: any) => e2.type == e.type
+        );
+
+        listMom[indexMomType].value = listMom[indexMomType].value + e.value;
+      });
+
+      let final: any = { value: 0 };
+      listMom.map((e: any, i: number) => {
+        if (final?.value < listMom[i].value) {
+          final = e;
+        }
+      });
+      setResult(final);
+    }
+    return () => {};
+  }, [listSelectedAnswer]);
+
+  console.log("BiMeow log listMom", listMom);
+  console.log("BiMeow log result", result);
+
   return (
     <>
       <div className={`SectionHomeQuizResult min-h-screen hidden mb:block`}>
@@ -232,9 +259,11 @@ function SectionHomeQuizResult({ ...props }) {
             alt="Tiki's Logo"
             className="w-[67px] mb-[20px]"
           />
+
           <div className="splitHeading">
             <p className="text-[28px] text-yellow mb-[10px]">
-              Mẹ <span className="text-blue">{momName}</span> thuộc kiểu...
+              Mẹ <span className="text-blue">{momName}</span> thuộc kiểu{" "}
+              <span className="text-blue">{result?.title}</span>
             </p>
             <p className="text-blue text-[24px]">
               “Gần gũi lắng lo. Bên con mọi lúc”
@@ -242,11 +271,17 @@ function SectionHomeQuizResult({ ...props }) {
           </div>
         </div>
         <div className="content mt-[-30px] mb-[50px]">
-          <img
-            src="/images/result-bestie.png"
-            alt=""
-            className="resultImage w-full mb-[10px] opacity-0"
-          />
+          <div className="resultImage mb-[-10px] opacity-0 rounded-b-[20px]">
+            <img src={result?.image} alt="" className="w-full" />
+            <div className="titleMom relative flex w-max mx-auto translate-y-[-50%] rotate-[-5deg]">
+              <p className="main relative z-10 text-[60px] text-white font-semibold">
+                {result?.title}
+              </p>
+              <p className="sub absolute top-[-3px] left-[-6px] text-[60px] text-[#3348FF] font-semibold">
+                {result?.title}
+              </p>
+            </div>
+          </div>
           <div className="detail px-[25px]">
             <p className="resultDesc text-[15px] text-center mb-[20px] opacity-0">
               Thời gian gần gũi, những cái ôm, những lời thủ thỉ tâm tình là món
@@ -297,15 +332,26 @@ function SectionHomeQuizResult({ ...props }) {
           className={`max-w-[1100px] mx-auto bg-[#0051D2] rounded-[60px] overflow-hidden`}
         >
           <div className="headingResult relative z-10 flex mb-[30px] opacity-0">
-            <img
-              src="/images/result-bestie-desktop.png"
-              alt=""
-              className="resultImage w-[40%] opacity-0"
-            />
+            <div className="resultImage w-[40%] opacity-0">
+              <img
+                src={result?.image}
+                alt=""
+                className="w-full rounded-b-[40px]"
+              />
+              <div className="titleMom relative flex w-max mx-auto translate-y-[-50%] rotate-[-5deg]">
+                <p className="main relative z-10 text-[60px] text-white font-semibold">
+                  {result?.title}
+                </p>
+                <p className="sub absolute top-[-3px] left-[-6px] text-[60px] text-[#3348FF] font-semibold">
+                  {result?.title}
+                </p>
+              </div>
+            </div>
             <div className="content w-[60%] text-center text-white px-[5vw] py-[45px] tl-p:px-[20px]">
               <div className="splitHeadingDesktop mb-[40px] ">
                 <p className="text-[30px] text-yellow mb-[5px]">
-                  Mẹ <span className="text-white">{momName}</span> thuộc kiểu...
+                  Mẹ <span className="text-white">{momName}</span> thuộc kiểu{" "}
+                  <span className="text-white">{result?.title}</span>
                 </p>
                 <p className=" text-[30px]">
                   “Gần gũi lắng lo. Bên con mọi lúc”

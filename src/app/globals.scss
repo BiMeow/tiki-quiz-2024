@@ -3,6 +3,29 @@
 @tailwind utilities;
 
 /* bimeow */
+@font-face {
+  font-family: "SF Pro Rounded";
+  src: url("/fonts/SFRounded-Medium.woff2") format("woff2");
+  font-weight: 500;
+}
+
+@font-face {
+  font-family: "SF Pro Rounded";
+  src: url("/fonts/SFRounded-Heavy.woff2") format("woff2");
+  font-weight: 600;
+}
+
+@font-face {
+  font-family: "SF Pro Rounded";
+  src: url("/fonts/SFRounded-Bold.woff2") format("woff2");
+  font-weight: 700;
+}
+
+@font-face {
+  font-family: "SF Pro Rounded";
+  src: url("/fonts/SFRounded-Black.woff2") format("woff2");
+  font-weight: 800;
+}
 
 .fadeUpCenter,
 .fadeDownCenter,
@@ -56,7 +79,7 @@ body,
 
 @layer base {
   body {
-    @apply text-[16px] font-medium bg-blue text-white leading-[1.3];
+    @apply text-[16px] font-SF_PRO_ROUNDED font-medium bg-blue text-white leading-[1.3];
   }
 
   .cusContainer {
@@ -163,5 +186,15 @@ body,
   }
   to {
     background-position: left;
+  }
+}
+
+.titleMom {
+  .main {
+    -webkit-text-stroke: 2px #0a68ff;
+  }
+  .main,
+  .sub {
+    text-shadow: 0px 4px #00000040;
   }
 }

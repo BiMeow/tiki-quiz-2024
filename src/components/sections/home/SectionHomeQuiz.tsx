@@ -3,79 +3,7 @@ import { message } from "antd";
 import gsap from "gsap";
 import { memo, useEffect, useState } from "react";
 import { motion } from "framer-motion";
-
-let listQuiz = [
-  {
-    question: "Khi con năn nỉ mẹ cho nuôi...",
-    answer: [
-      {
-        content: "Đáp án 1",
-      },
-      {
-        content: "Đáp án 2",
-      },
-      {
-        content: "Đáp án 3",
-      },
-      {
-        content: "Đáp án 4",
-      },
-    ],
-  },
-  {
-    question: "Khi con năn nỉ mẹ cho nuôi một bạn mèo hoặc thú cưng...",
-    answer: [
-      {
-        content: "Đáp án 1",
-      },
-      {
-        content: "Đáp án 2",
-      },
-      {
-        content: "Đáp án 3",
-      },
-      {
-        content: "Đáp án 4",
-      },
-    ],
-  },
-  {
-    question:
-      "Khi con năn nỉ mẹ cho nuôi một bạn mèo hoặc thú cưng... BiMeow BiMeow BiMeow BiMeow",
-    answer: [
-      {
-        content: "Đáp án 1",
-      },
-      {
-        content: "Đáp án 2",
-      },
-      {
-        content: "Đáp án 3",
-      },
-      {
-        content: "Đáp án 4",
-      },
-    ],
-  },
-  {
-    question:
-      "Khi con năn nỉ mẹ cho nuôi một bạn mèo hoặc thú cưng... BiMeow BiMeow BiMeow BiMeow BiMeow BiMeow BiMeow BiMeow",
-    answer: [
-      {
-        content: "Đáp án 1",
-      },
-      {
-        content: "Đáp án 2",
-      },
-      {
-        content: "Đáp án 3",
-      },
-      {
-        content: "Đáp án 4",
-      },
-    ],
-  },
-];
+import { listQuiz } from "@/data/quiz";
 
 function SectionHomeQuiz({ ...props }) {
   const { setQuizStep, listSelectedAnswer, setListSelectedAnswer } =
@@ -159,7 +87,7 @@ function SectionHomeQuiz({ ...props }) {
         initial={{ scale: 0, opacity: 0 }}
         animate={{ scale: 1, opacity: 1 }}
         exit={{ scale: 0, opacity: 0 }}
-        className={`SectionHomeQuiz flex flex-col h-dvh max-w-[1000px] max-h-[600px] mx-auto bg-[#0051D2] rounded-[30px] overflow-hidden tl-p:bg-transparent tl-p:rounded-none tl-p:max-h-dvh`}
+        className={`SectionHomeQuiz flex flex-col h-dvh max-w-[1200px] max-h-[600px] mx-auto bg-[#0051D2] rounded-[30px] overflow-hidden tl-p:bg-transparent tl-p:rounded-none tl-p:max-h-dvh`}
       >
         <div className="question relative p-[25px] bg-white rounded-b-[30px] opacity-0">
           <img
@@ -183,7 +111,7 @@ function SectionHomeQuiz({ ...props }) {
             {listQuiz[activeQuestion]?.question}
           </p>
           <img
-            src="/images/question-1.png"
+            src={listQuiz[activeQuestion]?.image}
             alt="Tiki's question"
             className="object-contain w-full h-[15vh] tl-p:h-[10vh]"
           />
@@ -212,8 +140,8 @@ function SectionHomeQuiz({ ...props }) {
             >
               <div
                 className={`
-                itemAnswer px-[15px] py-[10px] flex items-center rounded-[50px] duration-500
-                ${activeAnswer == i ? "bg-[#0241A7] text-white" : "bg-white text-black"}
+                itemAnswer cursor-pointer px-[15px] py-[10px] flex items-center rounded-[50px] duration-500
+                ${activeAnswer == i ? "bg-[#0241A7] text-white" : "bg-white text-black hover:bg-[#e4e4e4] tl-p:hover:bg-white"}
                 `}
                 onClick={() => setActiveAnswer(i)}
               >
