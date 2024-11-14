@@ -247,9 +247,6 @@ function SectionHomeQuizResult({ ...props }) {
     return () => {};
   }, [listSelectedAnswer]);
 
-  console.log("BiMeow log listMom", listMom);
-  console.log("BiMeow log result", result);
-
   return (
     <>
       <div className={`SectionHomeQuizResult min-h-screen hidden mb:block`}>
@@ -265,9 +262,7 @@ function SectionHomeQuizResult({ ...props }) {
               Mẹ <span className="text-blue">{momName}</span> thuộc kiểu{" "}
               <span className="text-blue">{result?.title}</span>
             </p>
-            <p className="text-blue text-[24px]">
-              “Gần gũi lắng lo. Bên con mọi lúc”
-            </p>
+            <p className="text-blue text-[24px]">“{result?.slogan}”</p>
           </div>
         </div>
         <div className="content mt-[-30px] mb-[50px]">
@@ -283,11 +278,8 @@ function SectionHomeQuizResult({ ...props }) {
             </div>
           </div>
           <div className="detail px-[25px]">
-            <p className="resultDesc text-[15px] text-center mb-[20px] opacity-0">
-              Thời gian gần gũi, những cái ôm, những lời thủ thỉ tâm tình là món
-              quà mẹ dành cho con trong suốt hành trình lớn khôn. Mẹ chẳng ngại
-              ngủ cùng con, luôn gắn bó chặt chẽ và hỗ trợ cảm xúc liên tục. Và
-              vì vậy, con luôn có cảm giác an toàn và kết nối sâu sắc với mẹ đó!
+            <p className="resultDesc text-[15px] text-center mb-[20px] opacity-0 whitespace-pre-wrap">
+              {result?.desc}
             </p>
             <div className="resultBtn mainBtn w-full flex justify-center text-[18px] opacity-0">
               <p>Chia sẻ ngay</p>
@@ -300,7 +292,7 @@ function SectionHomeQuizResult({ ...props }) {
         <div className="listProduct p-[25px] pt-0 bg-white rounded-t-[30px] opacity-0">
           <div className="heading relative px-[30px] py-[10px] bg-[#0241A7] rounded-[50px] -translate-y-1/2">
             <p className="text-center text-[20px]">
-              Trợ thủ đắc lực cho mẹ Bestie
+              Trợ thủ đắc lực cho mẹ {result?.title}
             </p>
             <img
               src="/images/tiki-mascot.png"
@@ -353,17 +345,11 @@ function SectionHomeQuizResult({ ...props }) {
                   Mẹ <span className="text-white">{momName}</span> thuộc kiểu{" "}
                   <span className="text-white">{result?.title}</span>
                 </p>
-                <p className=" text-[30px]">
-                  “Gần gũi lắng lo. Bên con mọi lúc”
-                </p>
+                <p className=" text-[30px]">“{result?.slogan}”</p>
               </div>
               <div className="detail">
-                <p className="resultDescDesktop text-[15px] text-center mb-[20px] opacity-0">
-                  Thời gian gần gũi, những cái ôm, những lời thủ thỉ tâm tình là
-                  món quà mẹ dành cho con trong suốt hành trình lớn khôn. Mẹ
-                  chẳng ngại ngủ cùng con, luôn gắn bó chặt chẽ và hỗ trợ cảm
-                  xúc liên tục. Và vì vậy, con luôn có cảm giác an toàn và kết
-                  nối sâu sắc với mẹ đó!
+                <p className="resultDescDesktop text-[15px] text-center mb-[20px] opacity-0 whitespace-pre-wrap">
+                  {result?.desc}
                 </p>
                 <div className="resultBtn">
                   <div className=" mainBtn px-[50px] mx-auto flex justify-center text-[18px] opacity-0">
@@ -379,7 +365,7 @@ function SectionHomeQuizResult({ ...props }) {
           <div className="listProduct px-[25px] pb-[40px] bg-white opacity-0">
             <div className="heading relative w-fit mx-auto px-[80px] py-[10px] bg-[#0241A7] rounded-[50px] -translate-y-1/2">
               <p className="text-center text-[28px]">
-                Trợ thủ đắc lực cho mẹ Bestie
+                Trợ thủ đắc lực cho mẹ {result?.title}
               </p>
               <img
                 src="/images/tiki-mascot.png"

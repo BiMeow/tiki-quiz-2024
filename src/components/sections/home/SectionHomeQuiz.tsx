@@ -87,7 +87,7 @@ function SectionHomeQuiz({ ...props }) {
         initial={{ scale: 0, opacity: 0 }}
         animate={{ scale: 1, opacity: 1 }}
         exit={{ scale: 0, opacity: 0 }}
-        className={`SectionHomeQuiz flex flex-col h-dvh max-w-[1200px] max-h-[600px] mx-auto bg-[#0051D2] rounded-[30px] overflow-hidden tl-p:bg-transparent tl-p:rounded-none tl-p:max-h-dvh`}
+        className={`SectionHomeQuiz flex flex-col h-dvh max-w-[1200px] max-h-[75dvh] mx-auto bg-[#0051D2] rounded-[30px] overflow-hidden tl-p:bg-transparent tl-p:rounded-none tl-p:max-h-dvh`}
       >
         <div className="question relative p-[25px] bg-white rounded-b-[30px] opacity-0">
           <img
@@ -113,7 +113,7 @@ function SectionHomeQuiz({ ...props }) {
           <img
             src={listQuiz[activeQuestion]?.image}
             alt="Tiki's question"
-            className="object-contain w-full h-[15vh] tl-p:h-[10vh]"
+            className="object-contain w-full h-[25dvh] tl-p:h-[10dvh]"
           />
           <img
             src="/images/deco-star-yellow.png"
