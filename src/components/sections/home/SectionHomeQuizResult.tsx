@@ -267,12 +267,16 @@ function SectionHomeQuizResult({ ...props }) {
         </div>
         <div className="content mt-[-30px] mb-[50px]">
           <div className="resultImage mb-[-10px] opacity-0 rounded-b-[20px]">
-            <img src={result?.image} alt="" className="w-full" />
+            <img
+              src={result?.image}
+              alt=""
+              className="w-full rounded-b-[40px]"
+            />
             <div className="titleMom relative flex w-max mx-auto translate-y-[-50%] rotate-[-5deg]">
-              <p className="main relative z-10 text-[60px] text-white font-semibold">
+              <p className="main relative z-10 text-[50px] text-white font-semibold uppercase">
                 {result?.title}
               </p>
-              <p className="sub absolute top-[-3px] left-[-6px] text-[60px] text-[#3348FF] font-semibold">
+              <p className="sub absolute top-[-3px] left-[-6px] text-[50px] text-[#3348FF] font-semibold uppercase">
                 {result?.title}
               </p>
             </div>
@@ -291,7 +295,7 @@ function SectionHomeQuizResult({ ...props }) {
         </div>
         <div className="listProduct p-[25px] pt-0 bg-white rounded-t-[30px] opacity-0">
           <div className="heading relative px-[30px] py-[10px] bg-[#0241A7] rounded-[50px] -translate-y-1/2">
-            <p className="text-center text-[20px]">
+            <p className="text-center text-[15px] pl-[20px]">
               Trợ thủ đắc lực cho mẹ {result?.title}
             </p>
             <img
@@ -328,13 +332,13 @@ function SectionHomeQuizResult({ ...props }) {
               <img
                 src={result?.image}
                 alt=""
-                className="w-full rounded-b-[40px]"
+                className="w-full rounded-br-[40px]"
               />
               <div className="titleMom relative flex w-max mx-auto translate-y-[-50%] rotate-[-5deg]">
-                <p className="main relative z-10 text-[60px] text-white font-semibold">
+                <p className="main relative z-10 text-[60px] text-white font-semibold uppercase">
                   {result?.title}
                 </p>
-                <p className="sub absolute top-[-3px] left-[-6px] text-[60px] text-[#3348FF] font-semibold">
+                <p className="sub absolute top-[-3px] left-[-6px] text-[60px] text-[#3348FF] font-semibold uppercase">
                   {result?.title}
                 </p>
               </div>
@@ -364,7 +368,7 @@ function SectionHomeQuizResult({ ...props }) {
           </div>
           <div className="listProduct px-[25px] pb-[40px] bg-white opacity-0">
             <div className="heading relative w-fit mx-auto px-[80px] py-[10px] bg-[#0241A7] rounded-[50px] -translate-y-1/2">
-              <p className="text-center text-[28px]">
+              <p className="text-center text-[28px] pl-[20px]">
                 Trợ thủ đắc lực cho mẹ {result?.title}
               </p>
               <img
