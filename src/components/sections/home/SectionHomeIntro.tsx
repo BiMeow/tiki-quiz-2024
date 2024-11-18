@@ -5,8 +5,39 @@ import gsap from "gsap";
 import { memo, useEffect, useMemo, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
+let originalListColor = [
+  "#FFFFFF",
+  "#B1D5FF",
+  "#0075FF",
+  "#FFB700",
+  "#FFC7BF",
+  "#FFEDAC",
+  "#92C5B2",
+];
+
+let listDecoText = [
+  "/images/intro-main-text-1.jpg",
+  "/images/intro-main-text-2.jpg",
+  "/images/intro-main-text-3.jpg",
+  "/images/intro-main-text-4.jpg",
+  "/images/intro-main-text-5.jpg",
+  "/images/intro-main-text-6.jpg",
+  "/images/intro-main-text-7.jpg",
+  "/images/intro-main-text-8.jpg",
+];
+
 function SectionHomeIntro({ ...props }) {
   const { introStep } = useStorage();
+  const [shuffledListColor, setShuffledListColor] = useState(originalListColor);
+  const [activeDecoText, setActiveDecoText] = useState(0);
+
+  const shuffleListColor = (list: any[]) => {
+    return [...list].sort(() => Math.random() - 0.5);
+  };
+
+  const changeActiveDecoText = () => {
+    return Math.floor(Math.random() * 8);
+  };
 
   useEffect(() => {
     setTimeout(() => {
@@ -169,7 +200,19 @@ function SectionHomeIntro({ ...props }) {
       //   }
       // );
     }, 1000);
-    return () => {};
+
+    const intervalChangeColor = setInterval(() => {
+      setShuffledListColor(shuffleListColor(originalListColor));
+    }, 2000);
+
+    const intervalChangeActiveDecoText = setInterval(() => {
+      setActiveDecoText(changeActiveDecoText());
+    }, 4000);
+
+    return () => {
+      clearInterval(intervalChangeColor);
+      clearInterval(intervalChangeActiveDecoText);
+    };
   }, []);
 
   const introContent = useMemo(() => {
@@ -215,7 +258,7 @@ function SectionHomeIntro({ ...props }) {
             </div>
             <div className="mainText absolute w-3/5 h-1/3 top-0 left-[20%]">
               <img
-                src="/images/intro-main-text.jpg"
+                src={listDecoText[activeDecoText]}
                 alt=""
                 className="size-full"
               />
@@ -231,30 +274,46 @@ function SectionHomeIntro({ ...props }) {
               alt=""
               className="mainFamily absolute w-2/5 h-2/3 bottom-0 left-[20%]"
             />
-            <img
-              src="/images/intro-main-mini1.jpg"
-              alt=""
-              className="mainMini1 absolute w-1/5 h-1/3 top-1/3 right-[20%]"
-            />
-            <div className="mainMini2 flexCenter absolute z-10 w-1/5 h-1/3 top-1/3 right-0 bg-[#B1D5FF]">
+            <div
+              className="mainMini1 flexCenter absolute w-1/5 h-1/3 top-1/3 right-[20%] duration-1000"
+              style={{ background: shuffledListColor[0] }}
+            >
+              <img
+                src="/images/intro-main-mini1.png"
+                alt=""
+                className="w-full"
+              />
+            </div>
+            <div
+              className="mainMini2 flexCenter absolute z-10 w-1/5 h-1/3 top-1/3 right-0 duration-1000"
+              style={{ background: shuffledListColor[1] }}
+            >
               <img
                 src="/images/intro-main-mini2.png"
                 alt=""
                 className="decoSpin1 w-[70%]"
               />
             </div>
-            <div className="mainMini3 flexCenter absolute z-10 w-1/5 h-1/3 bottom-0 right-[20%] bg-[#92C5B2]">
+            <div
+              className="mainMini3 flexCenter absolute z-10 w-1/5 h-1/3 bottom-0 right-[20%] duration-1000"
+              style={{ background: shuffledListColor[6] }}
+            >
               <img
                 src="/images/intro-main-mini3.png"
                 alt=""
                 className="w-[50%]"
               />
             </div>
-            <img
-              src="/images/intro-main-mini4.jpg"
-              alt=""
-              className="mainMini4 absolute w-1/5 h-1/3 bottom-0 right-0"
-            />
+            <div
+              className="mainMini4 flexCenter absolute w-1/5 h-1/3 bottom-0 right-0 duration-1000"
+              style={{ background: shuffledListColor[3] }}
+            >
+              <img
+                src="/images/intro-main-mini4.png"
+                alt=""
+                className="w-full"
+              />
+            </div>
           </div>
           <img
             src="/images/deco-flower.png"
@@ -297,7 +356,7 @@ function SectionHomeIntro({ ...props }) {
             </div>
             <div className="mainText absolute w-3/4 h-1/5 top-[40%] right-0">
               <img
-                src="/images/intro-main-text.jpg"
+                src={listDecoText[activeDecoText]}
                 alt=""
                 className="size-full"
               />
@@ -308,23 +367,36 @@ function SectionHomeIntro({ ...props }) {
               alt=""
               className="mainAvatar absolute w-1/4 h-1/5 top-0 left-[25%]"
             />
-            <div className="mainMini2 flexCenter absolute z-10 w-1/4 h-1/5 top-0 right-[25%] bg-[#B1D5FF]">
+            <div
+              className="mainMini2 flexCenter absolute z-10 w-1/4 h-1/5 top-0 right-[25%] duration-1000"
+              style={{ background: shuffledListColor[5] }}
+            >
               <img
                 src="/images/intro-main-mini2.png"
                 alt=""
                 className="decoSpin1 w-[70%]"
               />
             </div>
-            <img
-              src="/images/intro-main-mini4.jpg"
-              alt=""
-              className="mainMini4 absolute w-1/4 h-1/5 top-0 right-0"
-            />
-            <img
-              src="/images/intro-main-desktop-1.jpg"
-              alt=""
-              className="mainDestop1 absolute w-1/4 h-1/5 top-0 left-0"
-            />
+            <div
+              className="mainMini4 flexCenter  absolute w-1/4 h-1/5 top-0 right-0 duration-1000"
+              style={{ background: shuffledListColor[1] }}
+            >
+              <img
+                src="/images/intro-main-mini4.png"
+                alt=""
+                className="w-full"
+              />
+            </div>
+            <div
+              className="mainDestop1 flexCenter absolute w-1/4 h-1/5 top-0 left-0 duration-1000"
+              style={{ background: shuffledListColor[1] }}
+            >
+              <img
+                src="/images/intro-main-desktop-1.jpg"
+                alt=""
+                className="w-full"
+              />
+            </div>
             <img
               src="/images/intro-main-desktop-2.jpg"
               alt=""
@@ -335,27 +407,45 @@ function SectionHomeIntro({ ...props }) {
               alt=""
               className="mainDestop3 absolute w-1/4 h-1/5 top-[20%] left-[25%]"
             />
-            <img
-              src="/images/intro-main-desktop-4.jpg"
-              alt=""
-              className="mainDestop4 absolute w-1/4 h-1/5 top-[20%] left-[50%]"
-            />
-            <img
-              src="/images/intro-main-desktop-5.jpg"
-              alt=""
-              className="mainDestop5 absolute w-1/4 h-1/5 top-[20%] left-[75%]"
-            />
+            <div
+              className="mainDestop4 flexCenter mainDestop4 absolute w-1/4 h-1/5 top-[20%] left-[50%] duration-1000"
+              style={{ background: shuffledListColor[0] }}
+            >
+              <img
+                src="/images/intro-main-desktop-4.png"
+                alt=""
+                className="w-full"
+              />
+            </div>
+            <div
+              className="mainDestop5 flexCenter absolute w-1/4 h-1/5 top-[20%] left-[75%] duration-1000"
+              style={{ background: shuffledListColor[3] }}
+            >
+              <img
+                src="/images/intro-main-desktop-5.png"
+                alt=""
+                className="w-full"
+              />
+            </div>
             <img
               src="/images/intro-main-family.jpg"
               alt=""
               className="mainFamily absolute w-2/4 h-2/5 bottom-0 left-[25%]"
             />
-            <img
-              src="/images/intro-main-mini1.jpg"
-              alt=""
-              className="mainMini1 absolute w-1/4 h-1/5 bottom-[20%] right-0"
-            />
-            <div className="mainMini3 flexCenter absolute z-10 w-1/4 h-1/5 bottom-0 right-0 bg-[#92C5B2]">
+            <div
+              className="mainMini1 flexCenter absolute w-1/4 h-1/5 bottom-[20%] right-0 duration-1000"
+              style={{ background: shuffledListColor[0] }}
+            >
+              <img
+                src="/images/intro-main-mini1.png"
+                alt=""
+                className="w-full"
+              />
+            </div>
+            <div
+              className="mainMini3 flexCenter absolute z-10 w-1/4 h-1/5 bottom-0 right-0 duration-1000"
+              style={{ background: shuffledListColor[6] }}
+            >
               <img
                 src="/images/intro-main-mini3.png"
                 alt=""
