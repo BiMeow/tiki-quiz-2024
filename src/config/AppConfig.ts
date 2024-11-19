@@ -22,13 +22,13 @@ const AppConfig = {
   locale: "vi",
 
   icons: {
-    favicon: "/images/favicon.png",
-    icon: "/images/favicon.png",
-    shortcut: "/images/favicon.png",
-    apple: "/images/favicon.png",
+    favicon: "/images/favicon.jpg",
+    icon: "/images/favicon.jpg",
+    shortcut: "/images/favicon.jpg",
+    apple: "/images/favicon.jpg",
     other: {
-      rel: "images/favicon.png",
-      url: "/images/favicon.png",
+      rel: "images/favicon.jpg",
+      url: "/images/favicon.jpg",
     },
   },
 };
