@@ -87,9 +87,9 @@ function SectionHomeQuiz({ ...props }) {
         initial={{ scale: 0, opacity: 0 }}
         animate={{ scale: 1, opacity: 1 }}
         exit={{ scale: 0, opacity: 0 }}
-        className={`SectionHomeQuiz flex flex-col h-dvh max-w-[1200px] max-h-[75dvh] mx-auto bg-[#0051D2] rounded-[30px] overflow-hidden tl-p:bg-transparent tl-p:rounded-none tl-p:max-h-dvh`}
+        className={`SectionHomeQuiz flex flex-col h-dvh max-w-[1200px] max-h-[80dvh] mx-auto bg-[#0051D2] rounded-[30px] overflow-hidden dt-l:max-h-[90dvh] tl-p:bg-transparent tl-p:rounded-none tl-p:max-h-dvh`}
       >
-        <div className="question relative p-[25px] bg-white rounded-b-[30px] opacity-0">
+        <div className="question relative p-[25px] bg-white rounded-b-[30px] opacity-0 mb:pb-[15px]">
           <img
             src="/images/logo-blue.png"
             alt="Tiki's Logo"
@@ -107,13 +107,13 @@ function SectionHomeQuiz({ ...props }) {
               }}
             ></div>
           </div>
-          <p className="text-[22px] text-blue mb-[20px] tl-p:text-[18px]">
+          <p className="text-[22px] text-blue mb-[20px] tl-p:text-[18px] mb:mb-[10px]">
             {listQuiz[activeQuestion]?.question}
           </p>
           <img
             src={listQuiz[activeQuestion]?.image}
             alt="Tiki's question"
-            className="object-contain w-full h-[25dvh] tl-p:h-[10dvh]"
+            className="object-contain w-full h-[30dvh] dt-l:h-[27dvh] tl-l:h-[25dvh] tl-p:h-[15dvh]"
           />
           <img
             src="/images/deco-star-yellow.png"
@@ -153,7 +153,9 @@ function SectionHomeQuiz({ ...props }) {
                   ${i == 2 ? "p-[2px]" : ""}
                   `}
                 />
-                <p className="w-[calc(100%-25px)] pl-[15px]">{e.content}</p>
+                <p className="w-[calc(100%-25px)] pl-[15px] mb:text-[15px]">
+                  {e.content}
+                </p>
               </div>
             </div>
           ))}

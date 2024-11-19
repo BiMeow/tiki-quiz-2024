@@ -272,7 +272,7 @@ function SectionHomeIntro({ ...props }) {
             <img
               src="/images/intro-main-family.jpg"
               alt=""
-              className="mainFamily absolute w-2/5 h-2/3 bottom-0 left-[20%]"
+              className="mainFamily absolute w-[41%] h-2/3 bottom-0 left-[20%]"
             />
             <div
               className="mainMini1 flexCenter absolute w-1/5 h-1/3 top-1/3 right-[20%] duration-1000"
