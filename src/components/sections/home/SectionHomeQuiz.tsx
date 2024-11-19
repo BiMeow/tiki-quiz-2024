@@ -93,7 +93,8 @@ function SectionHomeQuiz({ ...props }) {
           <img
             src="/images/logo-blue.png"
             alt="Tiki's Logo"
-            className="w-[67px] mb-[20px]"
+            className="w-[67px] mb-[20px] cursor-pointer"
+            onClick={() => window.location.reload()}
           />
           <p className="text-[24px] text-yellow mb-[10px] tl-p:text-[22px]">
             Câu hỏi <span className="text-blue">{activeQuestion + 1}</span>/

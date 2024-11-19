@@ -254,7 +254,8 @@ function SectionHomeQuizResult({ ...props }) {
           <img
             src="/images/logo-blue.png"
             alt="Tiki's Logo"
-            className="w-[67px] mb-[20px]"
+            className="w-[67px] mb-[20px] cursor-pointer"
+            onClick={() => window.location.reload()}
           />
 
           <div className="splitHeading">
@@ -322,7 +323,8 @@ function SectionHomeQuizResult({ ...props }) {
         <img
           src="/images/logo.png"
           alt="Tiki's Logo"
-          className="w-[67px] mb-[20px] mx-auto"
+          className="w-[67px] mb-[20px] mx-auto cursor-pointer"
+          onClick={() => window.location.reload()}
         />
         <div
           className={`max-w-[1100px] mx-auto bg-[#0051D2] rounded-[60px] overflow-hidden`}
