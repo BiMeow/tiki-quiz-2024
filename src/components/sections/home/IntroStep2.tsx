@@ -22,7 +22,7 @@ function IntroStep2({ ...props }) {
           <input
             type="text"
             placeholder="Tên mẹ là gì?"
-            className="text-[24px] text-blue !border-none !outline-none !ring-0 w-[calc(100%-40px)] px-[10px] py-0 //text-center placeholder:text-blue"
+            className="text-[24px] text-blue !border-none !outline-none !ring-0 w-[calc(100%-40px)] px-[10px] py-0 text-left placeholder:text-blue placeholder:text-center"
             onChange={(e: any) => setMomName(e.target.value)}
           />
         </div>
