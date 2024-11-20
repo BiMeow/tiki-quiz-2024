@@ -129,7 +129,8 @@ body,
         #fff2 25%,
         #0000 30%
       );
-      animation: bgFlashing 3s linear infinite;
+      animation-delay: 0.5s;
+      animation: bgFlashing 2s linear infinite;
     }
   }
 }
@@ -195,5 +196,17 @@ body,
   .main,
   .sub {
     text-shadow: 0px 4px #00000040;
+  }
+}
+
+.sliderIntroDecoText {
+  .slick-list {
+    @apply size-full;
+  }
+
+  .slick-track,
+  .slick-slide,
+  .slick-slide div {
+    @apply h-full;
   }
 }

@@ -334,7 +334,7 @@ function SectionHomeQuizResult({ ...props }) {
               <img
                 src={result?.image}
                 alt=""
-                className="w-full rounded-br-[40px]"
+                className="w-full rounded-br-[60px]"
               />
               <div className="titleMom relative flex w-max mx-auto translate-y-[-50%] rotate-[-5deg]">
                 <p className="main relative z-10 text-[60px] text-white font-semibold uppercase">

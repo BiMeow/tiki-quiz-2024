@@ -4,6 +4,7 @@ import IntroStep2 from "@/components/sections/home/IntroStep2";
 import gsap from "gsap";
 import { memo, useEffect, useMemo, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import Slider from "react-slick";
 
 let originalListColor = [
   "#FFFFFF",
@@ -30,6 +31,20 @@ function SectionHomeIntro({ ...props }) {
   const { introStep } = useStorage();
   const [shuffledListColor, setShuffledListColor] = useState(originalListColor);
   const [activeDecoText, setActiveDecoText] = useState(0);
+
+  const settingSlider = {
+    dots: false,
+    arrows: false,
+    fade: true,
+    infinite: true,
+    speed: 500,
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    waitForAnimate: false,
+    autoplay: true,
+    autoplaySpeed: 2000,
+    cssEase: "linear",
+  };
 
   const shuffleListColor = (list: any[]) => {
     return [...list].sort(() => Math.random() - 0.5);
@@ -260,8 +275,20 @@ function SectionHomeIntro({ ...props }) {
               <img
                 src={listDecoText[activeDecoText]}
                 alt=""
-                className="size-full"
+                className="size-full opacity-0"
               />
+              <div className="absolute size-full top-0 left-0">
+                <Slider
+                  {...settingSlider}
+                  className="sliderIntroDecoText size-full"
+                >
+                  {listDecoText.map((e: any, i: number) => (
+                    <div key={i} className="itemDecoText">
+                      <img src={e} alt="" className="size-full object-cover" />
+                    </div>
+                  ))}
+                </Slider>
+              </div>
               <div className="flashing absFull z-10"></div>
             </div>
             <img
@@ -358,8 +385,20 @@ function SectionHomeIntro({ ...props }) {
               <img
                 src={listDecoText[activeDecoText]}
                 alt=""
-                className="size-full"
+                className="size-full opacity-0"
               />
+              <div className="absolute size-full top-0 left-0">
+                <Slider
+                  {...settingSlider}
+                  className="sliderIntroDecoText size-full"
+                >
+                  {listDecoText.map((e: any, i: number) => (
+                    <div key={i} className="itemDecoText">
+                      <img src={e} alt="" className="size-full object-cover" />
+                    </div>
+                  ))}
+                </Slider>
+              </div>
               <div className="flashing absFull z-10"></div>
             </div>
             <img
