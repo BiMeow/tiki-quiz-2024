@@ -234,7 +234,7 @@ export const listQuiz = [
     ],
   },
   {
-    image: "/images/mom-1.png",
+    image: "/images/question-10.png",
     question: `Ngay lúc này, mẹ có bao giờ thấy hối hận về những quyết định dưới vai trò người mẹ của mình không?`,
     answer: [
       {
