@@ -276,7 +276,7 @@ export let listMom = [
     image: "/images/mom-2.png",
     value: 0,
     slogan: "Mẹ chuẩn bao bọc, chẳng nhọc chở che",
-    desc: "",
+    desc: "Mẹ Gấu túi ơi! \nNhư gấu túi, mẹ luôn bao bọc, chở che con trong suốt hành trình khôn lớn. \nMẹ luôn sẵn sàng ra tay xử lý các vấn đề khó khăn giúp con, là chỗ dựa vững chắc để con tìm tới bất cứ khi nào cần. Tình yêu thương và sự bảo bọc vô điều kiện của mẹ chính là chìa khóa để con lớn lên đầy an toàn và khỏe mạnh.",
   },
   {
     type: 3,
@@ -284,7 +284,7 @@ export let listMom = [
     image: "/images/mom-3.png",
     value: 0,
     slogan: "Thuận theo tự nhiên, để yên con lớn",
-    desc: "Mẹ Gấu túi ơi! \nNhư gấu túi, mẹ luôn bao bọc, chở che con trong suốt hành trình khôn lớn. \nMẹ luôn sẵn sàng ra tay xử lý các vấn đề khó khăn giúp con, là chỗ dựa vững chắc để con tìm tới bất cứ khi nào cần. Tình yêu thương và sự bảo bọc vô điều kiện của mẹ chính là chìa khóa để con lớn lên đầy an toàn và khỏe mạnh.",
+    desc: "Mẹ Cá heo ơi! \nMẹ luôn tin “tự nhiên” là tốt nhất cho con: Sữa mẹ, thực phẩm lành mạnh, thiên nhiên trong lành. \nVậy nên mẹ luôn ưu tiên phong cách sống tự nhiên, tỉ mẩn nuôi con bằng phương pháp tự nhiên, tránh xa các sản phẩm hóa học. Nhờ vậy, con lớn lên đầy khỏe mạnh và an toàn.",
   },
   {
     type: 4,

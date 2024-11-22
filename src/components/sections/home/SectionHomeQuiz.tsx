@@ -3,10 +3,13 @@ import { message } from "antd";
 import gsap from "gsap";
 import { memo, useEffect, useState } from "react";
 import { motion } from "framer-motion";
-import { listQuiz } from "@/data/quiz";
+import { listMom, listQuiz } from "@/data/quiz";
+import { useRouter } from "next/navigation";
 
 function SectionHomeQuiz({ ...props }) {
-  const { setQuizStep, listSelectedAnswer, setListSelectedAnswer } =
+  const router = useRouter();
+
+  const { setQuizStep, listSelectedAnswer, setListSelectedAnswer, momName } =
     useStorage();
 
   const [activeQuestion, setActiveQuestion] = useState<any>(0);
@@ -170,9 +173,28 @@ function SectionHomeQuiz({ ...props }) {
                     listQuiz[activeQuestion]?.answer[activeAnswer],
                   ]);
                   if (activeQuestion + 1 == listQuiz?.length) {
-                    setQuizStep(0);
                     setTimeout(() => {
-                      setQuizStep(3);
+                      // setQuizStep(3);
+
+                      listSelectedAnswer.map((e: any, i: number) => {
+                        let indexMomType: any = listMom.findIndex(
+                          (e2: any) => e2.type == e.type
+                        );
+
+                        listMom[indexMomType].value =
+                          listMom[indexMomType].value + e.value;
+                      });
+
+                      let final: any = { value: 0 };
+                      listMom.map((e: any, i: number) => {
+                        if (final?.value < listMom[i].value) {
+                          final = e;
+                        }
+                      });
+
+                      router.push(
+                        `/result?momName=${momName}&momType=${final.type}`
+                      );
                     }, 200);
                   } else {
                     setActiveAnswer(-1);
