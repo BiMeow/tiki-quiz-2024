@@ -372,8 +372,8 @@ function SectionHomeQuizResult({ ...props }) {
                 <p className="resultDescDesktop text-[15px] text-center mb-[20px] opacity-0 whitespace-pre-wrap">
                   {result?.desc}
                 </p>
-                <div className="resultBtn">
-                  <div className=" mainBtn px-[50px] mx-auto flex justify-center text-[18px] opacity-0">
+                <div className="resultBtn opacity-0">
+                  <div className="mainBtn px-[50px] mx-auto flex justify-center text-[18px]">
                     <p>Chia sẻ ngay</p>
                     <div className="icon flex text-[25px] ml-[10px]">
                       <IconShare />
