@@ -7,9 +7,16 @@ import SplitType from "split-type";
 import { useWindowSize } from "usehooks-ts";
 import { motion } from "framer-motion";
 import { listMom } from "@/data/quiz";
+import { useRouter, useSearchParams } from "next/navigation";
 
 function SectionHomeQuizResult({ ...props }) {
-  const { momName, listSelectedAnswer } = useStorage();
+  const router = useRouter();
+
+  // const { momName, listSelectedAnswer } = useStorage();
+
+  const searchParams = useSearchParams();
+  const momName = searchParams.get("momName");
+  const momType = searchParams.get("momType");
 
   const { width } = useWindowSize();
 
@@ -226,26 +233,34 @@ function SectionHomeQuizResult({ ...props }) {
     return () => {};
   }, [width]);
 
+  // useEffect(() => {
+  //   if (listSelectedAnswer.length) {
+  //     listSelectedAnswer.map((e: any, i: number) => {
+  //       let indexMomType: any = listMom.findIndex(
+  //         (e2: any) => e2.type == e.type
+  //       );
+
+  //       listMom[indexMomType].value = listMom[indexMomType].value + e.value;
+  //     });
+
+  //     let final: any = { value: 0 };
+  //     listMom.map((e: any, i: number) => {
+  //       if (final?.value < listMom[i].value) {
+  //         final = e;
+  //       }
+  //     });
+  //     setResult(final);
+  //   }
+  //   return () => {};
+  // }, [listSelectedAnswer]);
+
   useEffect(() => {
-    if (listSelectedAnswer.length) {
-      listSelectedAnswer.map((e: any, i: number) => {
-        let indexMomType: any = listMom.findIndex(
-          (e2: any) => e2.type == e.type
-        );
-
-        listMom[indexMomType].value = listMom[indexMomType].value + e.value;
-      });
-
-      let final: any = { value: 0 };
-      listMom.map((e: any, i: number) => {
-        if (final?.value < listMom[i].value) {
-          final = e;
-        }
-      });
+    if (momType && momName) {
+      let final: any = listMom.find((e: any) => e.type == momType);
       setResult(final);
-    }
+    } else router.push("/");
     return () => {};
-  }, [listSelectedAnswer]);
+  }, [momType, momName]);
 
   return (
     <>
@@ -345,7 +360,7 @@ function SectionHomeQuizResult({ ...props }) {
                 </p>
               </div>
             </div>
-            <div className="content w-[60%] text-center text-white px-[5vw] py-[45px] tl-p:px-[20px]">
+            <div className="content w-[60%] text-center text-white px-[4.8vw] py-[45px] tl-p:px-[20px]">
               <div className="splitHeadingDesktop mb-[40px] ">
                 <p className="text-[30px] text-yellow mb-[5px]">
                   Mẹ <span className="text-white">{momName}</span> thuộc kiểu{" "}
@@ -357,8 +372,8 @@ function SectionHomeQuizResult({ ...props }) {
                 <p className="resultDescDesktop text-[15px] text-center mb-[20px] opacity-0 whitespace-pre-wrap">
                   {result?.desc}
                 </p>
-                <div className="resultBtn">
-                  <div className=" mainBtn px-[50px] mx-auto flex justify-center text-[18px] opacity-0">
+                <div className="resultBtn opacity-0">
+                  <div className="mainBtn px-[50px] mx-auto flex justify-center text-[18px]">
                     <p>Chia sẻ ngay</p>
                     <div className="icon flex text-[25px] ml-[10px]">
                       <IconShare />
